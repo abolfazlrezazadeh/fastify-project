@@ -1,3 +1,5 @@
+import { getProducts } from "../handler/product.handler.js";
+
 const product = {
   type: "object",
   properties: {
@@ -22,6 +24,8 @@ const getProductsItem = {
   handler : getProducts
 };
 
-function productRoutes(fastify, options, done) {
+export function productRoutes(fastify, options, done) {
   fastify.get("/products", getProductsItem);
+  done();
 }
+

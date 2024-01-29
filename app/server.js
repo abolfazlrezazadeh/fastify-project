@@ -1,16 +1,14 @@
 import Fastify from "fastify";
+import { productRoutes } from "./routes/product.routes.js";
+import fastify from "fastify";
 const PORT = 5000;
 const app = Fastify({
   logger: true,
 });
 
-app.get("/", (req, reply) => {
-  reply.send({
-    message: "helooo",
-  });
-});
+app.register(productRoutes);
 
-(async () => {
+const main = async () => {
   try {
     // await fastify.ready();
     await app.listen(PORT);
@@ -18,4 +16,6 @@ app.get("/", (req, reply) => {
     app.log.error(error);
     process.exit(1);
   }
-})();
+}
+
+main();
