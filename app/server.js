@@ -1,12 +1,12 @@
 import Fastify from "fastify";
 import { productRoutes } from "./routes/product.routes.js";
-import fastify from "fastify";
 import { indexRoutes } from "./routes/index.routes.js";
 const PORT = 5000;
 const app = Fastify({
   logger: true,
 });
 
+// routes
 app.register(indexRoutes);
 app.register(productRoutes);
 
