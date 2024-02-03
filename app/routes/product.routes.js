@@ -14,6 +14,7 @@ const product = {
 
 const getProductsItem = {
   schema: {
+    tags : ["products"],
     response: {
       200: {
         type: "array",
@@ -25,6 +26,7 @@ const getProductsItem = {
 };
 const getOneProduct = {
   schema: {
+    tags : ["products"],
     response: {
       200: {
         type: "array",
