@@ -1,4 +1,4 @@
-import { getProducts } from "../handler/product.handler.js";
+import { getProductById, getProducts } from "../handler/product.handler.js";
 
 const product = {
   type: "object",
@@ -23,9 +23,22 @@ const getProductsItem = {
   },
   handler : getProducts
 };
+const getOneProduct = {
+  schema: {
+    response: {
+      200: {
+        type: "array",
+        items: product,
+      },
+    },
+    
+  },
+  handler : getProductById
+};
 
 export function productRoutes(fastify, options, done) {
   fastify.get("/products", getProductsItem);
+  fastify.get("/products/:id", getOneProduct);
   done();
 }
 

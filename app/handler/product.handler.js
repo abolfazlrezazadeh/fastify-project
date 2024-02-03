@@ -6,3 +6,10 @@ export async function getProducts(req,reply){
         
     }
 }
+export async function getProductById(req,reply){
+    try {
+        // some actions
+    } catch (error) {
+        
+    }
+}
