@@ -1,4 +1,8 @@
-import { getProductById, getProducts } from "../handler/product.handler.js";
+import {
+  createProduct,
+  getProductById,
+  getProducts,
+} from "../handler/product.handler.js";
 
 const product = {
   type: "object",
@@ -14,7 +18,7 @@ const product = {
 
 const getProductsItem = {
   schema: {
-    tags : ["products"],
+    tags: ["products"],
     response: {
       200: {
         type: "array",
@@ -22,25 +26,49 @@ const getProductsItem = {
       },
     },
   },
-  handler : getProducts
+  handler: getProducts,
 };
 const getOneProduct = {
   schema: {
-    tags : ["products"],
+    tags: ["products"],
+    params: {
+      id: { type: "integer" },
+    },
     response: {
       200: {
-        type: "array",
-        items: product,
+        type: "object",
+        properties: { product },
       },
     },
-    
   },
-  handler : getProductById
+  handler: getProductById,
+};
+const postProduct = {
+  schema: {
+    tags: ["products"],
+    body: {
+      type: "object",
+      properties: {
+        name: { type: "string" },
+        description: { type: "string" },
+        price: { type: "integer" },
+      },
+    },
+    response: {
+      200: {
+        type: "object",
+        properties: {
+          message: { type: "string" },
+        },
+      },
+    },
+  },
+  handler: createProduct,
 };
 
 export function productRoutes(fastify, options, done) {
   fastify.get("/products", getProductsItem);
   fastify.get("/products/:id", getOneProduct);
+  fastify.post("/Create-product", postProduct);
   done();
 }
-

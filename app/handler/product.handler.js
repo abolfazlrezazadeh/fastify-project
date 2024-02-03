@@ -13,3 +13,11 @@ export async function getProductById(req,reply){
         
     }
 }
+export async function createProduct(req,reply){
+    try {
+        console.log(req.body);
+        // some actions
+    } catch (error) {
+        
+    }
+}
