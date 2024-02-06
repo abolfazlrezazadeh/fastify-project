@@ -3,7 +3,7 @@ import { productRoutes } from "./routes/product.routes.js";
 import { indexRoutes } from "./routes/index.routes.js";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
-import { swaggerConfig } from "./config/swagger.config.js";
+import { swaggerConfig, swaggerUiConfig } from "./config/swagger.config.js";
 // use require
 // import {createRequire} from "module"
 // const require = createRequire(import.meta.url)
@@ -13,9 +13,7 @@ const app = Fastify({
 });
 // config swagger
 app.register(fastifySwagger,swaggerConfig);
-app.register(fastifySwaggerUi, {
-  prefix: "swagger",
-});
+app.register(fastifySwaggerUi, swaggerUiConfig);
 // routes
 app.register(indexRoutes);
 app.register(productRoutes);

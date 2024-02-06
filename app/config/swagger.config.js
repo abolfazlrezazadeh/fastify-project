@@ -25,3 +25,7 @@ export const swaggerConfig = {
     security: [{ apiKey: [] }],
   },
 };
+
+export const swaggerUiConfig = {
+  prefix: "swagger",
+}
