@@ -1,9 +1,10 @@
 import Fastify from "fastify";
-import { productRoutes } from "./routes/product.routes.js";
-import { indexRoutes } from "./routes/index.routes.js";
+import { productRoutes } from "./app/routes/product.routes.js";
+import { indexRoutes } from "./app/routes/index.routes.js";
 import fastifySwagger from "@fastify/swagger";
 import fastifySwaggerUi from "@fastify/swagger-ui";
-import { swaggerConfig, swaggerUiConfig } from "./config/swagger.config.js";
+import { swaggerConfig, swaggerUiConfig } from "./app/config/swagger.config.js";
+import "./app/config/sequelize.config.js"
 // use require
 // import {createRequire} from "module"
 // const require = createRequire(import.meta.url)
