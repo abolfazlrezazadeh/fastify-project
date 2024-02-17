@@ -11,6 +11,7 @@ export const swaggerConfig = {
     produces: ["application/json"],
     tags: [
       { name: "products", description: "admin can access this part" },
+      { name: "user", description: "users can access this part" },
       { name: "home", description: "all of the users can access to this part" },
     ],
     // token
