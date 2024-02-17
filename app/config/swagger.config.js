@@ -7,7 +7,7 @@ export const swaggerConfig = {
     },
     host: "localhost:5000",
     schemes: ["http"],
-    consumes: ["application/json"],
+    consumes: ["application/json","application/x-www-urlencoded"],
     produces: ["application/json"],
     tags: [
       { name: "products", description: "admin can access this part" },

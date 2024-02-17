@@ -1,5 +1,5 @@
 
-import { registerUser } from "./Schema/auth.schema.js";
+import { registerUser } from "./Schema/user.schema.js";
 
 
 export function userRoute(fastify, options, done) {
