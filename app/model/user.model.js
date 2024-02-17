@@ -1,6 +1,6 @@
 import { Model, DataTypes } from "sequelize";
 
-import { sequelize } from "../config/sequelize.config";
+import { sequelize } from "../config/sequelize.config.js  ";
 
 export class User extends Model {}
 User.init(
@@ -19,7 +19,7 @@ User.init(
     lastName: {
       type: DataTypes.STRING,
     },
-    username: {
+    userName: {
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
@@ -33,9 +33,13 @@ User.init(
       defaultValue: false,
     },
   },
-  { sequelize, name: "user" }
+  { sequelize, modelName: "user" }
 );
-
-User.sync({ force }).then((result) => {
+const forceSync = true
+User.sync({ force: forceSync }).then((result) => {
+  // This will log the result of the sync operation
   console.log(result);
-});
+}).catch(err =>{
+  // This will log any error that occurs during the sync operation
+  console.error(err)
+})

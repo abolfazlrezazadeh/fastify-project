@@ -15,7 +15,7 @@ export const registerUser = {
     tags: ["user"],
     body: {
       type: "object",
-      required: ["username", "firstName", "lastName", "password"],
+      required: ["userName", "firstName", "lastName", "password"],
       properties: {
         userName: { type: "string", description: "username of user" },
         firstName: { type: "string", description: "firstName of user" },
