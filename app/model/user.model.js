@@ -35,7 +35,7 @@ User.init(
   },
   { sequelize, modelName: "user" }
 );
-const forceSync = true
+const forceSync = false
 User.sync({ force: forceSync }).then((result) => {
   // This will log the result of the sync operation
   console.log(result);

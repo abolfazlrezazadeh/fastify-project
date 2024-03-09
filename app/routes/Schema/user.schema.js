@@ -1,4 +1,4 @@
-import { createUser } from "../../handler/user.handler.js";
+import { createUser, LoginUser } from "../../handler/user.handler.js";
 
 export const User = {
   type: "object",
@@ -34,4 +34,27 @@ export const registerUser = {
     },
   },
   handler: createUser,
+};
+export const loginUser = {
+  schema: {
+    tags: ["user"],
+    body: {
+      type: "object",
+      required: ["userName", "password"],
+      properties: {
+        userName: { type: "string", description: "username of user" },
+        password: { type: "string", description: "password of user" },
+      },
+    },
+    response: {
+      200: {
+        description: 'user logged in successfully',
+        type: "object",
+        properties: {
+            result: { type: 'string' }
+          }
+      },
+    },
+  },
+  handler: LoginUser,
 };
