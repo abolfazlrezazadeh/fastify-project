@@ -51,7 +51,8 @@ export const loginUser = {
         description: 'user logged in successfully',
         type: "object",
         properties: {
-            result: { type: 'string' }
+            result: { type: 'string' },
+            token: { type: 'string' },
           }
       },
     },

@@ -11,14 +11,13 @@ import fastifyJwt from "@fastify/jwt";
 // import {createRequire} from "module"
 // const require = createRequire(import.meta.url)
 const PORT = 5000;
-const app = Fastify({
+export const app = Fastify({
   logger: true,
 });
 //config jwt
-app.ready(fastifyJwt,{
-  secret : "my-secret-key",
-
-})
+app.register(fastifyJwt, {
+  secret: "my-secret-key",
+});
 // config swagger
 app.register(fastifySwagger, swaggerConfig);
 app.register(fastifySwaggerUi, swaggerUiConfig);
