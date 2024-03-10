@@ -6,7 +6,7 @@ import fastifySwaggerUi from "@fastify/swagger-ui";
 import { swaggerConfig, swaggerUiConfig } from "./app/config/swagger.config.js";
 import "./app/config/sequelize.config.js";
 import { userRoute } from "./app/routes/user.routes.js";
-import fastifyFormbody from "@fastify/formbody";
+import fastifyJwt from "@fastify/jwt";
 // use require
 // import {createRequire} from "module"
 // const require = createRequire(import.meta.url)
@@ -14,8 +14,11 @@ const PORT = 5000;
 const app = Fastify({
   logger: true,
 });
-// Register the formbody plugin to parse URL-encoded data
-// app.register(fastifyFormbody);
+//config jwt
+app.ready(fastifyJwt,{
+  secret : "my-secret-key",
+
+})
 // config swagger
 app.register(fastifySwagger, swaggerConfig);
 app.register(fastifySwaggerUi, swaggerUiConfig);
