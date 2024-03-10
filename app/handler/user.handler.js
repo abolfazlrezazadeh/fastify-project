@@ -37,15 +37,12 @@ export async function LoginUser(req, reply) {
     if (!compareResult) {
       reply.code(400).send({ error: "username or password is not correct" });
     }
-    const token = app.jwt.sign({userName},{expiresIn })
-    user.accessToken = token
+    const token = app.jwt.sign({ userName }, { expiresIn });
+    user.accessToken = token;
     await user.save();
-    reply.code(200).send({
-      message : "login successfully",
-      accessToken : token
-    });
+    return reply.code(200).send(token);
   } catch (error) {
     console.log(error);
-    reply.code(500).send({ error: "failed" });
+    return reply.code(500).send({ error: "failed" });
   }
 }

@@ -52,7 +52,6 @@ export const loginUser = {
         type: "object",
         properties: {
             result: { type: 'string' },
-            token: { type: 'string' },
           }
       },
     },
